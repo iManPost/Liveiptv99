@@ -1,33 +1,6 @@
 <!DOCTYPE html>
 <head><title></title></head>
-		<meta charset="utf-8">
-		<title>Player</title>
-		<link href="https://unpkg.com/video.js@7.10.2/dist/video-js.css" rel="stylesheet" />
-		<link href="https://unpkg.com/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.css" rel="stylesheet" />
-	</head>
-	<body>
-		<h1>Player</h1>
-		<div>
 
-		</div>
-
-		<video-js id="my_player" class="vjs-default-skin" controls preload="auto" width="100%" height="400"></video-js>
-
-		<!--This is for Video.js by itself -->
-		<script src="https://unpkg.com/video.js@7.10.2/dist/video.js"></script>
-		<script src="https://unpkg.com/videojs-contrib-quality-levels@2.0.9/dist/videojs-contrib-quality-levels.min.js"></script>
-		<script src="https://unpkg.com/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.min.js"></script>
-
-		<!--This is for HLS compatibility with all major browsers-->
-		<script src="https://unpkg.com/@videojs/http-streaming@2.4.1/dist/videojs-http-streaming.min.js"></script>
-
-		<script>
-			var player = videojs('my_player');
-			document.getElementById("video_button").onclick = function() {
-				player.src(document.getElementById("video_src").value)
-			}
-			player.hlsQualitySelector();
-		</script>
 <body>
 
 <a href="go:C"><img src="https://nhd.org/wp-content/uploads/2022/11/Copy-of-Copy-of-39673730_History_Logo_2015_RGB_Black_type-1.png" alt="history icon" width="120" height="120"></a>
