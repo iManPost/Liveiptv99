@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV + HLS</title>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+    <script>
+        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #player {
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 16/9;
+        }
+        #channel-list {
+            margin: 10px auto;
+            max-width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+        }
+        .channel {
+            cursor: pointer;
+            padding: 5px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 5px;
+            text-align: center;
+            width: 60px;
+        }
+        .channel img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 5px;
+        }
+        .channel:hover {
+            background: #000;
+        }
+        #startPlayback {
+            margin: 15px;
+            padding: 10px 20px;
+            background: orange;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color:orange; text-align:center;">TV + HLS</h2>
+    <div id="player"></div>
+
+    <button id="startPlayback">▶ เริ่มเล่น</button>
+
+    <div id="channel-list"></div>
+
+    <script>
+        const channels = [
+
+			{
+                name: "",
+                logo: "https://p2.img.cctvpic.com/photoAlbum/page/performance/img/2022/3/21/1647846719088_381.png",
+                file: "http://54.37.19.157/history/tracks-v1a1/mono.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://logowik.com/content/uploads/images/ct-sport-hd6421.logowik.com.webp",
+                file: "http://74.91.26.218:82/live/cctv5hd.m3u8",
+                drm: false
+            },
+
+		
+			{
+                name: "",
+                logo: "https://assets.brandinside.asia/uploads/2016/12/hbo-logo-1.jpg",
+                file: "https://github.com/cattv976/movies/raw/refs/heads/main/hbo1.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://i.ibb.co/kscXG7sY/W2-FTVCircle-R2.png",
+                file: "https://linear-80.frequency.stream/dist/plex/80/hls/master/playlist.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://static.uflixtv.com/images/tv/channels_icons/uk-natgeo.png",
+                file: "https://live.dinesh29.com.np/stream/jiotvplus/nationalgeographic/master.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://static.uflixtv.com/images/tv/channels_icons/uk-natgeowild.png",
+                file: "https://live.dinesh29.com.np/stream/jiotvplus/natgeowildhd/master.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Outdoor_Channel_logo_2007-2017.svg/1200px-Outdoor_Channel_logo_2007-2017.svg.png",
+                file: "https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00718-outdoorchannela-outdoortvnz-samsungnz/playlist.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://www.fileinw.com/postor/20240418202134True%20X-Zyte.jpg",
+                file: "https://live2.inwstream.com/transcoder_F1/truexzyte_inwiptv.stream/chunks.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://static.uflixtv.cc/images/tv/png/th-ais-animalshow.png",
+                file: "https://live3.inwstream.com/transcoder_F1/animalshow_inwiptv.stream/chunks.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://static.uflixtv.cc/images/tv/png/th-ais-samrujlok.png",
+                file: "https://live3.inwstream.com/transcoder_F1/animalshow_inwiptv.stream/chunks.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://static.uflixtv.cc/images/tv/png/th-ais-thainess.png",
+                file: "https://live3.inwstream.com/transcoder_F1/thainess_inwiptv.stream/chunks.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://www.fileinw.com/postor/20240418211325KhongDeeThailand.jpg",
+                file: "https://live5.inwstream.com/transcoder_F1/khongdeethailand_inwiptv.stream/chunks.m3u8",
+                drm: false
+            },
+			{
+                name: "",
+                logo: "https://www.fileinw.com/postor/20240418211511MySci.jpg",
+                file: "https://live3.inwstream.com/transcoder_F1/mysci_inwiptv.stream/chunks.m3u8",
+                drm: false
+            },
+			{
+                name: "foxsports",
+                logo: "https://www.fileinw.com/postor/20240418211511MySci.jpg",
+                file: "https://cdn2.stream.atmflix.live/atmflixlive/foxsports/playlist.m3u8",
+                drm: false
+            }, 
+			{
+                name: "test",
+                logo: "https://www.fileinw.com/postor/20240418211511MySci.jpg",
+                file: "http://54.37.19.157/history/tracks-v1a1/mono.m3u8",
+                drm: false
+            }, 
+			
+            // … คุณสามารถเพิ่มช่องอื่นๆ ได้ตามต้องการ
+        ];
+
+        function loadPlayer(channel) {
+            const config = {
+                file: channel.file,
+                width: "100%",
+                aspectratio: "16:9",
+                autostart: true,
+                mute: false
+            };
+
+            // ถ้าเป็นไฟล์ .mpd + drm
+            if (channel.drm) {
+                config.type = "dash";
+                config.drm = {
+                    clearkey: {
+                        keyId: channel.keyId,
+                        key: channel.key
+                    }
+                };
+            } else {
+                // ถ้าไฟล์ .m3u8 (HLS)
+                config.type = "hls";
+            }
+
+            jwplayer("player").setup(config);
+        }
+
+        const channelList = document.getElementById("channel-list");
+        channels.forEach((channel, idx) => {
+            const div = document.createElement("div");
+            div.className = "channel";
+            const logoHtml = channel.logo 
+                ? `<img src="${channel.logo}" alt="${channel.name}"><br>`
+                : "";
+            div.innerHTML = logoHtml + channel.name;
+            div.onclick = () => loadPlayer(channel);
+            channelList.appendChild(div);
+        });
+
+        document.getElementById("startPlayback").onclick = () => {
+            loadPlayer(channels[0]); // เล่นช่องแรกเป็น default
+            document.getElementById("startPlayback").style.display = "none";
+        };
+    </script>
+</body>
+</html>
