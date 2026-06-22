@@ -1,46 +1,78 @@
-<!DOCTYPE html>
-<head><title></title></head>
-<img src="image.png" alt="https://www.shutterstock.com/image-vector/neon-light-video-player-template-260nw-2677644035.jpg" width="500" height="500">
+html<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Player Template</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        /* จัดกลุ่มตัวเล่นวิดีโอให้อยู่กึ่งกลาง */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .mock-video {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            background-color: #000;
+            border: 3px solid #00f0ff; /* ขอบไฟนีออนสีฟ้า */
+            box-shadow: 0 0 15px #00f0ff;
+            border-radius: 8px;
+        }
+        /* จัดกลุ่มโลโก้ช่องให้อยู่กึ่งกลางและเว้นระยะห่าง */
+        .channel-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .channel-list a img {
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .channel-list a img:hover {
+            transform: scale(1.1); /* ขยายขนาดเล็กน้อยเมื่อเอาเมาส์วาง */
+        }
+    </style>
+</head>
 <body>
 
-<a href="go:C"><img src="https://nhd.org/wp-content/uploads/2022/11/Copy-of-Copy-of-39673730_History_Logo_2015_RGB_Black_type-1.png" alt="history icon" width="120" height="120"></a>
+    <!-- ส่วนของตัวเล่นวิดีโอจำลอง จัดกึ่งกลาง -->
+    <div class="video-container">
+        <video class="mock-video" controls poster="https://shutterstock.com">
+            <!-- ใส่ Tag video หลอกไว้โดยไม่มีไฟล์เล่นจริง -->
+        </video>
+    </div>
 
-
-<a href="go:D"><img src="https://p2.img.cctvpic.com/photoAlbum/page/performance/img/2022/3/21/1647846719088_381.png" alt="history icon" width="120" height="120"></a>
-
-
-<a href="go:E"><img src="https://logowik.com/content/uploads/images/ct-sport-hd6421.logowik.com.webp" alt="history icon" width="120" height="120"></a>
-
-
-<a href="go:F"><img src="https://raw.githubusercontent.com/Nebiela/live-new2/refs/heads/live-new2/movie%20film%20cinema%20poster%20banner.jpg" alt="history icon" width="120" height="120"></a>
-
-<a href="go:G"><img src="https://raw.githubusercontent.com/Nebiela/live-new2/refs/heads/live-new2/movie%20film%20cinema%20poster%20banner.jpg" alt="history icon" width="120" height="120"></a>
-
-<a href="go:H"><img src="https://raw.githubusercontent.com/Nebiela/live-new2/refs/heads/live-new2/movie%20film%20cinema%20poster%20banner.jpg" alt="history icon" width="120" height="120"></a>
-
-<a href="go:i"><img src="https://static.wikia.nocookie.net/logopedia/images/b/b5/XTRA_2.png" alt="history icon" width="120" height="120"></a>
-
-<a href="go:J"><img src="https://ball67.com/assets/channels-logo/golfchannel.png" alt="history icon" width="120" height="120"></a>
-
-<a href="go:K"><img src="https://assets.brandinside.asia/uploads/2016/12/hbo-logo-1.jpg" alt="history icon" width="120" height="120"></a>
-
-<a href="go:N"><img src="https://assets.brandinside.asia/uploads/2016/12/hbo-logo-1.jpg" alt="history icon" width="120" height="120"></a>
-
-<a href="go:L"><img src="https://ball67.com/assets/channels-logo/monomax-sport-tv.png" alt="history icon" width="120" height="120"></a>
-
-<a href="go:M"><img src="https://ball67.com/assets/channels-logo/bein1.png" alt="history icon" width="120" height="120"></a>
-
-
-
-<a href="go:O"><img src="https://ball67.com/assets/channels-logo/bein2.png" alt="history icon" width="120" height="120"></a>
-
-<a href="go:P"><img src="https://ball67.com/assets/channels-logo/bein2.png" alt="history icon" width="120" height="120"></a>
-
-
-<a href="go:Q"><img src="https://ball67.com/assets/channels-logo/truesport1.png" alt="history icon" width="120" height="120"></a>
-
-
-<a href="go:R"><img src="https://ball67.com/assets/channels-logo/truesport2.png" alt="history icon" width="120" height="120"></a>
+    <!-- ส่วนของรายชื่อช่องรายการ -->
+    <div class="channel-list">
+        <a href="go:C"><img src="https://nhd.org" alt="history icon" width="120" height="120"></a>
+        <a href="go:D"><img src="https://cctvpic.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:E"><img src="https://logowik.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:F"><img src="https://githubusercontent.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:G"><img src="https://githubusercontent.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:H"><img src="https://githubusercontent.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:i"><img src="https://nocookie.net" alt="history icon" width="120" height="120"></a>
+        <a href="go:J"><img src="https://ball67.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:K"><img src="https://brandinside.asia" alt="history icon" width="120" height="120"></a>
+        <a href="go:N"><img src="https://brandinside.asia" alt="history icon" width="120" height="120"></a>
+        <a href="go:L"><img src="https://ball67.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:M"><img src="https://ball67.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:O"><img src="https://ball67.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:P"><img src="https://ball67.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:Q"><img src="https://ball67.com" alt="history icon" width="120" height="120"></a>
+        <a href="go:R"><img src="https://ball67.com" alt="history icon" width="120" height="120"></a>
+    </div>
 
 </body>
 </html>
